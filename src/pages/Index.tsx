@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import Logo from "@/components/Logo";
 import WaitlistForm from "@/components/WaitlistForm";
@@ -90,13 +89,13 @@ const Index = () => {
       {/* Content container */}
       <main className="container mx-auto px-4 py-8 relative z-10">
         {/* Header */}
-        <header className="flex justify-center mb-6 pt-8">
+        <header className="flex justify-center mb-3 pt-8">
           <Logo size="xl" />
         </header>
         
         {/* Hero Section */}
         <section className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tighter">
             <span className="text-bburst-neon">Unbabel</span> <span className="text-white">the world</span>
           </h1>
           
