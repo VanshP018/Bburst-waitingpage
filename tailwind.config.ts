@@ -69,7 +69,12 @@ export default {
 					'light-purple': '#E5DEFF',
 					'vivid-purple': '#8B5CF6',
 					blue: '#33C3F0',
+					neon: '#0AFFEE',
+					'neon-blue': '#00C2FF',
+					'neon-pink': '#FF00DD',
+					'neon-purple': '#C537FE',
 					dark: '#1A1F2C',
+					darker: '#13151D',
 					neutral: '#8E9196',
 				}
 			},
@@ -115,6 +120,10 @@ export default {
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(10px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				glow: {
+					'0%, 100%': { textShadow: '0 0 5px #0AFFEE, 0 0 10px #0AFFEE, 0 0 15px #0AFFEE' },
+					'50%': { textShadow: '0 0 20px #0AFFEE, 0 0 30px #0AFFEE, 0 0 40px #0AFFEE' },
 				}
 			},
 			animation: {
@@ -124,7 +133,13 @@ export default {
 				pulse: 'pulse 3s ease-in-out infinite',
 				'bubble-rise': 'bubble-rise 15s linear infinite',
 				'bubble-pop': 'bubble-pop 0.4s ease-out forwards',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				glow: 'glow 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'grid-pattern': 'linear-gradient(to right, rgba(10, 255, 238, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(10, 255, 238, 0.1) 1px, transparent 1px)'
 			}
 		}
 	},
