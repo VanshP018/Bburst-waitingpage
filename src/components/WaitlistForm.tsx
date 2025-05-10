@@ -42,7 +42,7 @@ const WaitlistForm = () => {
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 bg-white/80 border-bburst-purple/20 focus-visible:ring-bburst-purple"
+        className="flex-1 bg-black/80 border-bburst-purple/20 focus-visible:ring-bburst-purple"
         required
       />
       <Button 
