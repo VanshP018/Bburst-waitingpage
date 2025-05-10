@@ -18,13 +18,13 @@ const Index = () => {
     
     for (let i = 0; i < 3; i++) {
       intervals.push(
-        setInterval(() => {
+        window.setInterval(() => {
           createBubbleBurst();
         }, 3000 + (i * 2000)) // Stagger the intervals
       );
     }
     
-    return () => intervals.forEach(interval => clearInterval(interval));
+    return () => intervals.forEach(interval => window.clearInterval(interval));
   }, []);
   
   const createBubbleBurst = () => {
@@ -90,14 +90,14 @@ const Index = () => {
       {/* Content container */}
       <main className="container mx-auto px-4 py-8 relative z-10">
         {/* Header */}
-        <header className="flex justify-center mb-12 pt-8">
+        <header className="flex justify-center mb-6 pt-8">
           <Logo size="xl" />
         </header>
         
         {/* Hero Section */}
         <section className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tighter">
-            <span className="text-bburst-neon animate-glow-light">Unbabel</span> <span className="text-white">the world</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
+            <span className="text-bburst-neon">Unbabel</span> <span className="text-white">the world</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto">
