@@ -124,6 +124,10 @@ export default {
 				glow: {
 					'0%, 100%': { textShadow: '0 0 5px #0AFFEE, 0 0 10px #0AFFEE, 0 0 15px #0AFFEE' },
 					'50%': { textShadow: '0 0 20px #0AFFEE, 0 0 30px #0AFFEE, 0 0 40px #0AFFEE' },
+				},
+				'glow-light': {
+					'0%, 100%': { textShadow: '0 0 3px #0AFFEE, 0 0 6px #0AFFEE, 0 0 9px #0AFFEE' },
+					'50%': { textShadow: '0 0 12px #0AFFEE, 0 0 18px #0AFFEE, 0 0 24px #0AFFEE' },
 				}
 			},
 			animation: {
@@ -134,7 +138,8 @@ export default {
 				'bubble-rise': 'bubble-rise 15s linear infinite',
 				'bubble-pop': 'bubble-pop 0.4s ease-out forwards',
 				'fade-in': 'fade-in 0.6s ease-out',
-				glow: 'glow 2s ease-in-out infinite'
+				glow: 'glow 2s ease-in-out infinite',
+				'glow-light': 'glow-light 2s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

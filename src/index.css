@@ -112,4 +112,58 @@
     background-image: var(--grid-pattern);
     opacity: 0.2;
   }
+
+  /* Bubble burst animations */
+  .bubble-burst {
+    animation: bubble-burst 0.5s ease-out forwards;
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(10, 255, 238, 0.8) 0%, rgba(10, 255, 238, 0.3) 70%);
+  }
+
+  .burst-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0AFFEE, #00C2FF);
+    animation: particle-fly 0.8s ease-out forwards;
+  }
+}
+
+@keyframes bubble-burst {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes particle-fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-light {
+  0%, 100% { text-shadow: 0 0 3px #0AFFEE, 0 0 6px #0AFFEE, 0 0 9px #0AFFEE; }
+  50% { text-shadow: 0 0 12px #0AFFEE, 0 0 18px #0AFFEE, 0 0 24px #0AFFEE; }
+}
+
+@layer utilities {
+  .animate-glow-light {
+    animation: glow-light 2s ease-in-out infinite;
+  }
 }

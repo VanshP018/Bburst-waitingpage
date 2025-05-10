@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Logo from "@/components/Logo";
 import WaitlistForm from "@/components/WaitlistForm";
 import BubbleBackground from "@/components/BubbleBackground";
@@ -7,10 +7,77 @@ import FeatureCard from "@/components/FeatureCard";
 import { MessageSquare, Palette, Languages } from "lucide-react";
 
 const Index = () => {
+  const burstRefs = useRef<HTMLDivElement[]>([]);
+  
   // Update document title when component mounts
   useEffect(() => {
     document.title = "Bburst - Unbabel the world";
+    
+    // Setup random bubble bursts
+    const intervals: number[] = [];
+    
+    for (let i = 0; i < 3; i++) {
+      intervals.push(
+        setInterval(() => {
+          createBubbleBurst();
+        }, 3000 + (i * 2000)) // Stagger the intervals
+      );
+    }
+    
+    return () => intervals.forEach(interval => clearInterval(interval));
   }, []);
+  
+  const createBubbleBurst = () => {
+    if (!document.body) return;
+    
+    const burst = document.createElement('div');
+    burst.className = 'bubble-burst';
+    
+    // Random position
+    const maxWidth = window.innerWidth - 100;
+    const maxHeight = window.innerHeight - 100;
+    const left = 50 + Math.random() * maxWidth;
+    const top = 50 + Math.random() * maxHeight;
+    
+    burst.style.left = `${left}px`;
+    burst.style.top = `${top}px`;
+    burst.style.width = `${30 + Math.random() * 50}px`;
+    burst.style.height = burst.style.width;
+    
+    document.body.appendChild(burst);
+    
+    // Create particles
+    for (let i = 0; i < 8; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'burst-particle';
+      
+      const angle = (i / 8) * Math.PI * 2;
+      const tx = Math.cos(angle) * (50 + Math.random() * 50);
+      const ty = Math.sin(angle) * (50 + Math.random() * 50);
+      
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      
+      particle.style.left = `${left}px`;
+      particle.style.top = `${top}px`;
+      
+      document.body.appendChild(particle);
+      
+      // Remove particles after animation
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 800);
+    }
+    
+    // Remove burst after animation
+    setTimeout(() => {
+      if (burst.parentNode) {
+        burst.parentNode.removeChild(burst);
+      }
+    }, 500);
+  };
 
   return (
     <div className="min-h-screen w-full hero-gradient relative overflow-hidden">
@@ -24,13 +91,13 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8 relative z-10">
         {/* Header */}
         <header className="flex justify-center mb-12 pt-8">
-          <Logo size="lg" />
+          <Logo size="xl" />
         </header>
         
         {/* Hero Section */}
         <section className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tighter">
-            <span className="text-bburst-neon animate-glow">Unbabel</span> <span className="text-white">the world</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tighter">
+            <span className="text-bburst-neon animate-glow-light">Unbabel</span> <span className="text-white">the world</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto">
